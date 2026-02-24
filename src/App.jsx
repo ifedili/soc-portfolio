@@ -485,7 +485,7 @@ function About() {
       }}>
         <span style={{ color: 'var(--accent-green)' }}>$</span> cat /etc/analyst-profile<br />
         <span style={{ color: 'var(--text-secondary)' }}>
-          Focus: Detection & Response &nbsp;|&nbsp; Location: Nigeria 🇳🇬 &nbsp;|&nbsp; Available for: Remote Roles
+          Focus: Detection & Response &nbsp;|&nbsp; Location: Ireland 🇮🇪 &nbsp;|&nbsp; Available for: Hybrid / Remote Roles
         </span>
       </div>
     </section>
