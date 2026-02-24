@@ -1,9 +1,9 @@
 :root {
-  --bg-primary: #0a0e1a;
-  --bg-secondary: #0f1423;
-  --bg-card: #111827;
-  --bg-card-hover: #161d2f;
-  --border-primary: #1a2035;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #0f0f0f;
+  --bg-card-hover: #141414;
+  --border-primary: #1a1a1a;
   --border-hover: rgba(0, 180, 216, 0.25);
   --text-primary: #e8edf5;
   --text-secondary: #8892a4;
@@ -28,11 +28,11 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #1a2035 #0a0e1a;
+  scrollbar-color: #1a1a1a #000000;
 }
 
 body {
-  background: var(--bg-primary);
+  background: #000000;
   color: var(--text-primary);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -40,9 +40,9 @@ body {
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: #1a2035; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #243049; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #252525; }
 
 ::selection {
   background: rgba(0, 180, 216, 0.25);

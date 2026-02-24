@@ -238,18 +238,18 @@ function SectionHeader({ num, label, title, highlight }) {
 function BrowserMockup({ url, color, children }) {
   return (
     <div style={{
-      background: '#1a1f2e', borderRadius: '10px', overflow: 'hidden',
-      border: '1px solid #242b3d',
+      background: '#0d0d0d', borderRadius: '10px', overflow: 'hidden',
+      border: '1px solid #1a1a1a',
     }}>
       <div style={{
         padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '8px',
-        background: '#14181f', borderBottom: '1px solid #242b3d',
+        background: '#080808', borderBottom: '1px solid #1a1a1a',
       }}>
         <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#ef4444' }} />
         <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#f5a623' }} />
         <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#00e5a0' }} />
         <div style={{
-          flex: 1, marginLeft: '8px', background: '#0d1017', borderRadius: '6px',
+          flex: 1, marginLeft: '8px', background: '#050505', borderRadius: '6px',
           padding: '5px 14px', fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
           color: '#4a5568',
         }}>
@@ -291,7 +291,7 @@ function Navbar({ active }) {
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-      background: scrolled ? 'rgba(10, 14, 26, 0.92)' : 'transparent',
+      background: scrolled ? 'rgba(0, 0, 0, 0.92)' : 'transparent',
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
       borderBottom: scrolled ? '1px solid var(--border-primary)' : '1px solid transparent',
       transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -335,7 +335,7 @@ function Navbar({ active }) {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="nav-mobile-menu" style={{
-          background: 'rgba(10, 14, 26, 0.98)', padding: '0.5rem 2rem 1.5rem',
+          background: 'rgba(0, 0, 0, 0.98)', padding: '0.5rem 2rem 1.5rem',
           borderBottom: '1px solid var(--border-primary)',
         }}>
           {NAV.map((n, i) => (
@@ -343,7 +343,7 @@ function Navbar({ active }) {
               display: 'block', padding: '0.75rem 0',
               fontFamily: 'var(--font-mono)', fontSize: '0.8rem',
               color: 'var(--text-secondary)', textTransform: 'uppercase',
-              letterSpacing: '0.05em', borderBottom: '1px solid #111827',
+              letterSpacing: '0.05em', borderBottom: '1px solid #0f0f0f',
             }}>
               <span style={{ color: 'var(--accent-blue)', opacity: 0.4 }}>0{i + 1}.</span> {n.label}
             </a>
@@ -419,12 +419,12 @@ function Hero() {
           padding: '0.75rem 1.5rem', border: '1px solid var(--border-primary)',
           borderRadius: '4px', display: 'inline-flex', flexWrap: 'wrap',
           justifyContent: 'center', gap: '0.5rem',
-          background: 'rgba(10, 14, 26, 0.6)',
+          background: 'rgba(0, 0, 0, 0.6)',
         }}>
           <span><span style={{ color: 'var(--accent-green)' }}>STATUS:</span> <span style={{ color: 'var(--accent-blue)' }}>ACTIVE</span></span>
-          <span style={{ color: '#141c2e' }}>│</span>
+          <span style={{ color: '#1a1a1a' }}>│</span>
           <span><span style={{ color: 'var(--accent-green)' }}>CLEARANCE:</span> <span style={{ color: 'var(--accent-blue)' }}>BLUE TEAM</span></span>
-          <span style={{ color: '#141c2e' }}>│</span>
+          <span style={{ color: '#1a1a1a' }}>│</span>
           <span><span style={{ color: 'var(--accent-green)' }}>THREAT LEVEL:</span> <span style={{ color: 'var(--accent-amber)' }}>MONITORED</span></span>
         </div>
       </div>
@@ -543,7 +543,7 @@ function SkillCard({ skill, delay }) {
           <span key={item} style={{
             fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-secondary)',
             padding: '4px 10px', border: '1px solid var(--border-primary)', borderRadius: '3px',
-            background: 'rgba(10, 14, 26, 0.5)', transition: 'all 0.3s',
+            background: 'rgba(0, 0, 0, 0.5)', transition: 'all 0.3s',
           }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(0,180,216,0.3)'; e.currentTarget.style.color = 'var(--accent-blue)' }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.color = 'var(--text-secondary)' }}
@@ -874,7 +874,7 @@ function IRCard({ ir, idx, open, onToggle }) {
                 {ir.iocs.map((ioc, ii) => (
                   <div key={ii} style={{
                     fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-secondary)',
-                    padding: '4px 0', borderBottom: ii < ir.iocs.length - 1 ? '1px solid #141c2e' : 'none',
+                    padding: '4px 0', borderBottom: ii < ir.iocs.length - 1 ? '1px solid #1a1a1a' : 'none',
                   }}>
                     <span style={{ color: 'var(--accent-red)', marginRight: '0.5rem' }}>▸</span>
                     {ioc}
@@ -1047,7 +1047,7 @@ function ContactBtn({ primary, href, children }) {
 function Footer() {
   return (
     <footer style={{
-      padding: '2rem', borderTop: '1px solid #0d1525', textAlign: 'center',
+      padding: '2rem', borderTop: '1px solid #111111', textAlign: 'center',
     }}>
       <div style={{
         fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)',
@@ -1055,9 +1055,9 @@ function Footer() {
         flexWrap: 'wrap', gap: '0.5rem',
       }}>
         <span>© 2026 IFEDIORA OKOLO</span>
-        <span style={{ color: '#141c2e' }}>│</span>
+        <span style={{ color: '#1a1a1a' }}>│</span>
         <span>SECURING THE DIGITAL FRONTIER</span>
-        <span style={{ color: '#141c2e' }}>│</span>
+        <span style={{ color: '#1a1a1a' }}>│</span>
         <span style={{ color: 'var(--accent-green)' }}>ALL SYSTEMS OPERATIONAL</span>
       </div>
     </footer>
