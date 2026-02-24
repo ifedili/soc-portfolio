@@ -1015,7 +1015,7 @@ function Contact() {
         }}>
           <ContactBtn primary href="mailto:ifediora1000@gmail.com">Send Transmission →</ContactBtn>
           <ContactBtn href="http://linkedin.com/in/ifediora-okolo-0896b8217">LinkedIn</ContactBtn>
-          <ContactBtn href="https://github.com">GitHub</ContactBtn>
+          <ContactBtn href="https://github.com/ifedili">GitHub</ContactBtn>
         </div>
       </div>
     </section>
