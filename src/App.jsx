@@ -1013,7 +1013,7 @@ function Contact() {
         <div style={{
           display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap',
         }}>
-          <ContactBtn primary href="mailto:ifediora1000@gmail.com">Email →</ContactBtn>
+          <ContactBtn primary href="mailto:ifediora1000@gmail.com"> Email → </ContactBtn>
           <ContactBtn href="http://linkedin.com/in/ifediora-okolo-0896b8217">LinkedIn</ContactBtn>
           <ContactBtn href="https://github.com/ifedili">GitHub</ContactBtn>
         </div>
