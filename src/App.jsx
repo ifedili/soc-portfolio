@@ -462,11 +462,11 @@ function About() {
       }}>
         <p style={{ marginBottom: '1.5rem' }}>
           I'm a SOC Analyst passionate about protecting organizations from cyber threats.
-          I specialize in threat detection, incident response, and security monitoring
-          — turning raw alerts into actionable intelligence.
+          I specialize in threat detection, incident response, and security monitoring,
+          turning raw alerts into actionable intelligence.
         </p>
         <p style={{ marginBottom: '1.5rem' }}>
-          My approach combines hands-on technical skills with analytical thinking.
+          My approach combines hands on technical skills with analytical thinking.
           From triaging phishing attempts to hunting for advanced persistent threats,
           I thrive in the fast-paced world of security operations.
         </p>
