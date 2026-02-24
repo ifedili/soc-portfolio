@@ -413,7 +413,7 @@ function Hero() {
           color: 'var(--text-muted)', marginBottom: '2.5rem', letterSpacing: '0.1em',
           textTransform: 'uppercase',
         }}>
-          SOC Analyst &nbsp;·&nbsp; Threat Hunter &nbsp;·&nbsp; Blue Team
+          SOC Analyst &nbsp;·&nbsp; Incident Response &nbsp;·&nbsp; Blue Team
         </div>
 
         <div style={{
