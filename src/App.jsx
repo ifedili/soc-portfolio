@@ -51,7 +51,7 @@ const SKILLS = [
   { cat: 'Network & Endpoint', items: ['Wireshark', 'Snort / Suricata', 'CrowdStrike', 'Velociraptor'] },
   { cat: 'Scripting & Automation', items: ['Python', 'PowerShell', 'Bash', 'KQL', 'SPL'] },
   { cat: 'Frameworks', items: ['NIST CSF', 'ISO 27001', 'OWASP Top 10', 'CIS Controls'] },
-  { cat: 'Certifications', items: ['CompTIA Security+', 'Google Cybersec Cert', 'TryHackMe SOC 1', 'Splunk Core User'] },
+  { cat: 'Certifications', items: ['CompTIA Security+', 'Google Cybersec Cert', 'TryHackMe SOC 1', 'Splunk Core User', 'CompTIA CySA+'] },
 ]
 
 const PROJECTS = [
