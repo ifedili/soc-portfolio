@@ -46,12 +46,12 @@ const NAV = [
 ]
 
 const SKILLS = [
-  { cat: 'SIEM & Monitoring', items: ['Splunk', 'Microsoft Sentinel', 'Elastic SIEM', 'Wazuh', 'QRadar'] },
+  { cat: 'SIEM & Monitoring', items: ['Splunk', 'Microsoft Sentinel', 'Elastic SIEM'] },
   { cat: 'Threat Intelligence', items: ['MITRE ATT&CK', 'VirusTotal', 'AbuseIPDB', 'OSINT', 'Threat Hunting'] },
-  { cat: 'Network & Endpoint', items: ['Wireshark', 'Snort / Suricata', 'CrowdStrike', 'Velociraptor'] },
-  { cat: 'Scripting & Automation', items: ['Python', 'PowerShell', 'Bash', 'KQL', 'SPL'] },
+  { cat: 'Network & Endpoint', items: ['Wireshark', 'Snort / Suricata', 'CrowdStrike', ] },
+  { cat: 'Scripting & Automation', items: ['Python', 'PowerShell', 'Bash'] },
   { cat: 'Frameworks', items: ['NIST CSF', 'ISO 27001', 'OWASP Top 10', 'CIS Controls'] },
-  { cat: 'Certifications', items: ['CompTIA Security+', 'Google Cybersec Cert', 'TryHackMe SOC 1', 'Splunk Core User', 'CompTIA CySA+'] },
+  { cat: 'Certifications', items: ['CompTIA Security+', 'Google Cybersec Cert', 'TryHackMe SOC 1', 'Splunk Core User', 'CompTIA CySA+', 'Kaseya Certified Technician in Cybersecurity', 'Security Blue Team Level 1', 'GDPR', 'ISO/IEC 27001:2022 Lead', 'Malware Analysis', 'Remote IT & Security Management Program -Foundations'] },
 ]
 
 const PROJECTS = [
