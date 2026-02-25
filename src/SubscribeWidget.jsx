@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 // Replace YOUR_USERNAME with your Buttondown
 // username before deploying!
 // ============================================
-const BUTTONDOWN_USERNAME = "YOUR_USERNAME";
+const BUTTONDOWN_USERNAME = "ifedili2021";
 
 function useInView(threshold = 0.15) {
   const ref = useRef(null);
