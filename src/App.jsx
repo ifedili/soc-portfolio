@@ -411,7 +411,7 @@ function Hero() {
           color: 'var(--text-muted)', marginBottom: '2.5rem', letterSpacing: '0.1em',
           textTransform: 'uppercase',
         }}>
-          SOC Analyst &nbsp;·&nbsp; Threat Hunter &nbsp;·&nbsp; Blue Team
+          SOC Analyst &nbsp;·&nbsp; Incident Responder &nbsp;·&nbsp; Threat Intel
         </div>
 
         <div style={{
@@ -461,9 +461,7 @@ function About() {
         marginTop: '-1rem',
       }}>
         <p style={{ marginBottom: '1.5rem' }}>
-          I'm a SOC Analyst passionate about protecting organizations from cyber threats.
-          I specialize in threat detection, incident response, and security monitoring
-          — turning raw alerts into actionable intelligence.
+          I&apos;m a security practitioner with a passion for keeping organizations safe from cyber threats. I specialize in threat intelligence, incident response, and security monitoring, turning raw alerts into actionable insights that make a real difference. My approach blends hands on technical skills with sharp analytical thinking. Whether I&apos;m  triaging phishing attempts or hunting down advanced persistent threats, I thrive in the fast paced world of security operations. When I&apos;m  not deep in incident response or chasing down threats, you&apos;ll find me tinkering in my home lab, writing about cybersecurity, and contributing to the blue team community.
         </p>
         <p style={{ marginBottom: '1.5rem' }}>
           My approach combines hands-on technical skills with analytical thinking.
@@ -485,7 +483,7 @@ function About() {
       }}>
         <span style={{ color: 'var(--accent-green)' }}>$</span> cat /etc/analyst-profile<br />
         <span style={{ color: 'var(--text-secondary)' }}>
-          Focus: Detection & Response &nbsp;|&nbsp; Location: Ireland IR &nbsp;|&nbsp; Available for: Remote Roles
+          Focus: Detection & Response &nbsp;|&nbsp; Location: Ireland &#127470;&#127466; &nbsp;|&nbsp; Available for: Hybrid / Remote Roles
         </span>
       </div>
     </section>
