@@ -1051,13 +1051,14 @@ function Footer() {
     }}>
       <div style={{
         fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)',
-        letterSpacing: '0.1em', display: 'flex', justifyContent: 'center',
-        flexWrap: 'wrap', gap: '0.5rem',
-      }}>
-        <span>© 2026 IFEDIORA OKOLO</span>
-        <span style={{ color: '#1a1a1a' }}>│</span>
+        letterSpacing: '0.1em', display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '0.4rem'
+    }}>
+        <span> Copyright © 2026 </span>
         <span>SECURING THE DIGITAL FRONTIER</span>
-        <span style={{ color: '#1a1a1a' }}>│</span>
         <span style={{ color: 'var(--accent-green)' }}>ALL SYSTEMS OPERATIONAL</span>
       </div>
     </footer>
