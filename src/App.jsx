@@ -1013,7 +1013,7 @@ function Contact() {
         }}>
           <ContactBtn primary href="https://mail.google.com/mail/?view=cm&fs=1&to=ifediora1000@gmail.com&su=Hello%20Ifediora" target="_blank"> Email → </ContactBtn>
           <ContactBtn href="http://linkedin.com/in/ifediora-okolo-0896b8217">LinkedIn</ContactBtn>
-          <ContactBtn href="https://github.com/ifedili">GitHub</ContactBtn>
+          <ContactBtn href="https://github.com">GitHub</ContactBtn>
         </div>
       </div>
     </section>
