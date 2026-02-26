@@ -1,16 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ifediora Okolo </title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ifediora Okolo | Cybersecurity Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060608;--bg2:#0b0b10;--card:#0f0f16;--card2:#131320;--accent:#00e6b0;--accent2:#00c49a;--aglow:rgba(0,230,176,0.1);--abrd:rgba(0,230,176,0.2);--t:#eef1f0;--ts:#8a9b90;--tm:#3e4e44;--brd:#161622;--red:#ff5f57;--yel:#febc2e;--grn:#28c840;--ora:#f0a030;--tbg:rgba(0,230,176,0.07);--tbrd:rgba(0,230,176,0.15)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+/* ADMIN */
+.adm{display:none !important}
+body.am .adm{display:inline-flex !important}
+.abadge{position:fixed;bottom:1rem;right:1rem;z-index:999;font-family:'Fira Code',monospace;font-size:0.6rem;background:rgba(255,95,87,0.15);color:var(--red);border:1px solid rgba(255,95,87,0.3);border-radius:6px;padding:0.3rem 0.7rem;display:none;letter-spacing:1px}
+body.am .abadge{display:block}
+
+/* NAV */
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:0;background:rgba(15,15,22,0.85);backdrop-filter:blur(20px);border:1px solid var(--brd);border-radius:50px;padding:0.35rem 0.5rem}
+.nlogo{font-family:'Fira Code',monospace;font-weight:600;font-size:0.82rem;color:var(--accent);padding:0.4rem 1rem;cursor:pointer;white-space:nowrap}
+.nlogo .t{color:var(--tm)}
+.nlink{font-family:'Fira Code',monospace;font-size:0.65rem;font-weight:500;color:var(--ts);padding:0.45rem 0.8rem;border-radius:30px;cursor:pointer;transition:0.25s;white-space:nowrap}
+.nlink:hover{color:var(--t)}
+.nlink.active{background:rgba(255,255,255,0.08);color:var(--t)}
+.ham{display:none;background:none;border:none;cursor:pointer;padding:0.4rem 0.8rem}
+.ham span{display:block;width:16px;height:2px;background:var(--accent);margin:3px 0;border-radius:2px}
+
+/* SECTIONS */
+section{padding:120px 4rem 5rem;background:var(--bg)}
+.maxw{max-width:1100px;margin:0 auto}
+.slbl{font-family:'Fira Code',monospace;font-size:0.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:3px;margin-bottom:0.8rem}
+.stitle{font-family:'Playfair Display',serif;font-size:3rem;font-weight:400;margin-bottom:0.8rem;line-height:1.15}
+.stitle em{font-style:italic;color:var(--ts)}
+.sdesc{font-size:1rem;color:var(--ts);max-width:500px;line-height:1.8;margin-bottom:2rem}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding-top:80px}
+#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:100px 100px}
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;width:100%}
+.hero-avail{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--accent);border:1px solid var(--abrd);border-radius:30px;padding:0.4rem 1rem;margin-bottom:2rem}
+.hero-avail::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero-role{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;line-height:1.05;margin-bottom:0.5rem}
+.hero-role em{color:var(--accent);font-style:normal}
+.hero-sub{font-family:'Fira Code',monospace;font-size:0.82rem;color:var(--ora);letter-spacing:2px;margin-bottom:1.5rem}
+.hero-bio{font-size:0.95rem;color:var(--ts);max-width:600px;line-height:1.9;margin-bottom:2rem}
+.hero-btns{display:flex;gap:0.8rem;margin-bottom:3rem;flex-wrap:wrap}
+.hbtn{font-family:'Fira Code',monospace;font-size:0.78rem;padding:0.7rem 1.5rem;border-radius:8px;cursor:pointer;transition:0.3s;letter-spacing:0.5px}
+.hbtn.pri{background:var(--accent);color:var(--bg);border:2px solid var(--accent)}
+.hbtn.pri:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 6px 25px rgba(0,230,176,0.2)}
+.hbtn.sec{background:transparent;color:var(--t);border:2px solid var(--brd)}
+.hbtn.sec:hover{border-color:var(--ts);transform:translateY(-2px)}
+
+/* STATUS BOX */
+.hero-status{display:inline-flex;align-items:center;gap:1.2rem;border:1px solid var(--brd);border-radius:10px;padding:0.8rem 1.8rem;font-family:'Fira Code',monospace;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2rem;flex-wrap:wrap}
+.hl{color:var(--tm)}.vg{color:var(--accent)}.vb{color:#5dadec}.vo{color:var(--ora)}
+.hd{color:var(--brd)}
+
+/* STATS BAR */
+.stats-bar{display:flex;align-items:center;gap:3rem;padding:2rem 0;border-top:1px solid var(--brd);margin-top:1rem;flex-wrap:wrap}
+.stat-item .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--accent)}
+.stat-item .stat-label{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--tm);text-transform:uppercase;letter-spacing:2px}
+
+/* TOOLS MARQUEE */
+#tools{padding:3rem 0;background:var(--bg2);overflow:hidden}
+.tools-title{font-family:'Fira Code',monospace;font-size:0.85rem;color:var(--t);text-transform:uppercase;letter-spacing:4px;text-align:center;margin-bottom:2rem}
+.marquee{display:flex;gap:1rem;animation:scroll 30s linear infinite;width:max-content}
+.marquee:hover{animation-play-state:paused}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tool-chip{display:flex;align-items:center;gap:0.5rem;background:var(--card);border:1px solid var(--brd);border-radius:8px;padding:0.55rem 1rem;font-family:'Fira Code',monospace;font-size:0.72rem;color:var(--ts);white-space:nowrap;flex-shrink:0}
+.tool-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* ABOUT */
+#about{padding-top:100px}
+.about-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+.about-tag{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:400;color:var(--ts);border-left:3px solid var(--accent);padding-left:1rem;margin-bottom:2rem;font-style:italic}
+.about-text{font-size:1rem;color:var(--ts);line-height:2;margin-bottom:1.5rem;max-width:700px}
+.about-term{background:var(--card);border:1px solid var(--brd);border-left:3px solid var(--accent);border-radius:8px;padding:1.2rem 1.5rem;font-family:'Fira Code',monospace;font-size:0.8rem;color:var(--ts);line-height:1.8;max-width:700px;margin-top:1rem}
+.about-term .cmd{color:var(--accent)}
+
+/* SKILLS */
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.sk{background:var(--card);border:1px solid var(--brd);border-radius:12px;padding:1.5rem;transition:0.3s}
+.sk:hover{border-color:var(--abrd);transform:translateY(-2px)}
+.sk h3{font-family:'Fira Code',monospace;font-size:0.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.sk h3::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:0.45rem}
+.tag{font-family:'Fira Code',monospace;font-size:0.68rem;padding:0.3rem 0.7rem;border-radius:6px;background:var(--tbg);border:1px solid var(--tbrd);color:var(--ts)}
+
+/* PROJECTS */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.5rem}
+.pc{background:var(--card);border:1px solid var(--brd);border-radius:14px;overflow:hidden;cursor:pointer;transition:0.3s}
+.pc:hover{border-color:var(--abrd);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,230,176,0.05)}
+.ptb{display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(0,0,0,0.3);border-bottom:1px solid var(--brd)}
+.dt{width:8px;height:8px;border-radius:50%}
+.dr{background:var(--red)}.dy{background:var(--yel)}.dg{background:var(--grn)}
+.purl{font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--tm);margin-left:6px}
+.ppv{height:150px;position:relative;display:flex;align-items:center;justify-content:center;background-image:radial-gradient(circle,rgba(0,230,176,0.05) 1px,transparent 1px);background-size:16px 16px}
+.ppv.ct{background-color:rgba(0,180,120,0.05)}.ppv.cb{background-color:rgba(40,100,200,0.05)}.ppv.cp{background-color:rgba(130,60,200,0.05)}.ppv.cr{background-color:rgba(200,60,60,0.05)}
+.pab{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--accent);opacity:0.35;letter-spacing:6px}
+.pst{position:absolute;bottom:8px;right:10px;font-family:'Fira Code',monospace;font-size:0.55rem;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;padding:0.2rem 0.5rem;border-radius:4px}
+.sc{background:rgba(0,230,176,0.1);color:var(--accent);border:1px solid var(--abrd)}
+.si{background:rgba(254,188,46,0.1);color:var(--yel);border:1px solid rgba(254,188,46,0.2)}
+.pbd{padding:1.2rem 1.4rem}
+.pbd h3{font-size:0.95rem;font-weight:600;margin-bottom:0.4rem}
+.pbd p{font-size:0.78rem;color:var(--ts);line-height:1.6;margin-bottom:0.7rem}
+
+/* LIST SECTIONS */
+.shrow{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem}
+.cbtn{font-family:'Fira Code',monospace;font-size:0.72rem;font-weight:600;color:var(--bg);background:var(--accent);border:none;padding:0.55rem 1.1rem;border-radius:6px;cursor:pointer;transition:0.25s}
+.cbtn:hover{background:var(--accent2)}
+.alist{max-width:850px}
+.ai{padding:1.5rem 0;border-bottom:1px solid var(--brd);cursor:pointer;transition:0.2s;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem}
+.ai:first-child{border-top:1px solid var(--brd)}
+.ai:hover .ait{color:var(--accent)}
+.aif{flex:1}
+.ait{font-size:1.1rem;font-weight:700;margin-bottom:0.3rem;transition:0.2s}
+.aid{font-size:0.82rem;color:var(--ts);line-height:1.6}
+.aim{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--accent);white-space:nowrap;padding-top:0.1rem}
+
+/* FILTER TABS */
+.ftabs{display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.ftab{font-family:'Fira Code',monospace;font-size:0.7rem;padding:0.4rem 1rem;border-radius:20px;cursor:pointer;transition:0.2s;border:1px solid var(--brd);background:transparent;color:var(--ts)}
+.ftab:hover{border-color:var(--ts)}
+.ftab.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+
+.empty{text-align:center;padding:4rem 2rem;color:var(--tm);font-size:0.85rem}
+
+/* CONTACT */
+#contact{text-align:center;padding:100px 4rem}
+.cbtns{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;max-width:700px;margin:0 auto}
+.cl{font-family:'Fira Code',monospace;font-size:0.95rem;font-weight:500;letter-spacing:1px;padding:1.2rem 2.5rem;border-radius:10px;min-width:220px;text-align:center;transition:0.3s;cursor:pointer}
+.cl.p{background:var(--accent);color:var(--bg);border:2px solid var(--accent)}
+.cl.p:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,230,176,0.2)}
+.cl.o{background:transparent;color:var(--accent);border:2px solid var(--abrd)}
+.cl.o:hover{border-color:var(--accent);background:var(--aglow);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--brd);padding:2.5rem 4rem}
+.foot-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.foot-left{font-family:'Fira Code',monospace;font-size:0.72rem;color:var(--tm)}
+.foot-sub{display:flex;align-items:center;gap:0;flex:1;max-width:420px}
+.foot-sub-label{font-size:0.85rem;font-weight:600;color:var(--t);margin-right:0.5rem;white-space:nowrap}
+.foot-sub-desc{font-size:0.72rem;color:var(--ts);margin-right:1rem;white-space:nowrap}
+.foot-sub input{font-family:'Fira Code',monospace;font-size:0.75rem;background:transparent;border:1px solid var(--brd);border-radius:6px 0 0 6px;padding:0.5rem 0.8rem;color:var(--t);outline:none;flex:1;min-width:0}
+.foot-sub input:focus{border-color:var(--accent)}
+.foot-sub button{font-family:'Fira Code',monospace;font-size:0.7rem;font-weight:600;background:var(--accent);color:var(--bg);border:1px solid var(--accent);border-radius:0 6px 6px 0;padding:0.5rem 1rem;cursor:pointer;white-space:nowrap}
+.foot-links{display:flex;gap:1.5rem;font-family:'Fira Code',monospace;font-size:0.7rem}
+.foot-links a{color:var(--ts);transition:0.2s}
+.foot-links a:hover{color:var(--accent)}
+.subok2{font-family:'Fira Code',monospace;font-size:0.7rem;color:var(--accent);display:none;margin-left:0.5rem}
+
+/* DETAIL */
+.dov{display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;animation:su 0.3s ease}
+.dov.open{display:block}
+@keyframes su{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.dhdr{position:sticky;top:0;z-index:10;background:rgba(6,6,8,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--brd);padding:0.8rem 3rem}
+.bb{display:inline-flex;align-items:center;gap:6px;font-family:'Fira Code',monospace;font-size:0.72rem;color:var(--accent);background:var(--aglow);border:1px solid var(--abrd);border-radius:6px;padding:0.4rem 0.9rem;cursor:pointer}
+.bb:hover{background:rgba(0,230,176,0.15)}
+.din{max-width:800px;margin:0 auto;padding:3rem 2rem 4rem}
+.din h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:400;margin-bottom:1rem;line-height:1.25}
+.dmr{display:flex;gap:1.2rem;font-family:'Fira Code',monospace;font-size:0.68rem;color:var(--tm);margin-bottom:1rem;flex-wrap:wrap;align-items:center}
+.dtg{margin-bottom:2rem}
+.dc{font-size:0.92rem;line-height:2;color:var(--ts)}
+.dc p{margin-bottom:1.2rem}
+.dc h2{font-family:'Fira Code',monospace;font-size:0.9rem;color:var(--accent);margin:2rem 0 0.7rem;text-transform:uppercase;letter-spacing:1px}
+.dc pre{background:var(--card);border:1px solid var(--brd);border-radius:8px;padding:1rem;font-family:'Fira Code',monospace;font-size:0.75rem;overflow-x:auto;margin:1rem 0;color:var(--t);line-height:1.7}
+.dc ul,.dc ol{margin:0.8rem 0 1.2rem 1.5rem;color:var(--ts)}
+.dc li{margin-bottom:0.4rem}
+.dac{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--brd)}
+.del{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--red);background:rgba(255,95,87,0.08);border:1px solid rgba(255,95,87,0.2);border-radius:5px;padding:0.35rem 0.8rem;cursor:pointer}
+
+/* MODAL */
+.mov{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:2rem}
+.mov.open{display:flex}
+.mod{background:var(--card);border:1px solid var(--brd);border-radius:14px;width:100%;max-width:600px;max-height:85vh;overflow-y:auto;padding:2rem}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.mh h2{font-family:'Fira Code',monospace;font-size:0.95rem;color:var(--accent)}
+.mx{width:28px;height:28px;border-radius:6px;background:rgba(255,95,87,0.1);border:1px solid rgba(255,95,87,0.2);color:var(--red);font-size:0.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--tm);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem}
+.fg input,.fg textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:0.82rem;background:var(--bg);border:1px solid var(--brd);border-radius:8px;padding:0.6rem 0.85rem;color:var(--t);outline:none;transition:0.25s}
+.fg input:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--aglow)}
+.fg textarea{min-height:200px;resize:vertical;line-height:1.7}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.sb{width:100%;font-family:'Fira Code',monospace;font-size:0.78rem;font-weight:600;color:var(--bg);background:var(--accent);border:none;border-radius:8px;padding:0.75rem;cursor:pointer;text-transform:uppercase;letter-spacing:1px;margin-top:0.5rem}
+.sb:hover{background:var(--accent2)}
+
+@media(max-width:900px){
+  nav{top:10px;left:10px;right:10px;transform:none;border-radius:12px;justify-content:space-between}
+  .nlink{display:none}.ham{display:block}
+  nav.mob .nlink{display:block;width:100%}
+  nav.mob{flex-wrap:wrap}
+  section{padding:80px 1.5rem 3rem}
+  .hero-role{font-size:2.6rem}
+  .pgrid{grid-template-columns:1fr}
+  .stats-bar{gap:1.5rem}
+  .stitle{font-size:2rem}
+  .foot-inner{flex-direction:column;text-align:center}
+  .foot-sub{max-width:100%}
+  .cbtns{flex-direction:column;align-items:center}
+  .cl{width:100%;max-width:300px}
+  .sk-grid{grid-template-columns:1fr}
+  .fr{grid-template-columns:1fr}
+  .ai{flex-direction:column;gap:0.4rem}.aim{text-align:left}
+}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--brd);border-radius:2px}
+</style>
+</head>
+<body>
+<div class="abadge">⚡ ADMIN — Ctrl+Shift+A to exit</div>
+
+<nav id="nav">
+  <span class="nlogo" onclick="go('hero')"><span class="t">~/</span>ifediora</span>
+  <a class="nlink active" onclick="go('about')" data-s="about">About</a>
+  <a class="nlink" onclick="go('skills')" data-s="skills">Skills</a>
+  <a class="nlink" onclick="go('projects')" data-s="projects">Projects</a>
+  <a class="nlink" onclick="go('articles')" data-s="articles">Articles</a>
+  <a class="nlink" onclick="go('contact')" data-s="contact">Contact</a>
+  <button class="ham" onclick="document.getElementById('nav').classList.toggle('mob')"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-avail">Available for opportunities &amp; collaboration</div>
+    <div class="hero-role">Cybersecurity<br><em>Analyst</em></div>
+    <div class="hero-sub">SOC ANALYST · INCIDENT RESPONDER · THREAT INTEL</div>
+    <p class="hero-bio">I'm a security practitioner with a passion for keeping organizations safe from cyber threats. I specialize in threat intelligence, incident response, and security monitoring — turning raw alerts into actionable insights that make a real difference.</p>
+    <div class="hero-btns">
+      <a class="hbtn pri" href="mailto:ifediora1000@gmail.com">Get in touch ↗</a>
+      <a class="hbtn sec" onclick="go('projects')">View Projects ↗</a>
+    </div>
+    <div class="hero-status">
+      <span><span class="hl">STATUS:</span> <span class="vg">ACTIVE</span></span>
+      <span class="hd">|</span>
+      <span><span class="hl">CLEARANCE:</span> <span class="vb">BLUE TEAM</span></span>
+      <span class="hd">|</span>
+      <span><span class="hl">THREAT LEVEL:</span> <span class="vo">MONITORED</span></span>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Certifications</div></div>
+      <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Projects Built</div></div>
+      <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Detection Rules</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS MARQUEE -->
+<div id="tools">
+  <div class="tools-title">Favourite Tools</div>
+  <div style="overflow:hidden">
+    <div class="marquee" id="marquee"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="maxw">
+    <div class="slbl">// About Me</div>
+    <div class="stitle">Defending networks, <em>one alert at a time.</em></div>
+    <div class="about-tag">A Cybersecurity Practitioner</div>
+    <p class="about-text">I specialize in threat intelligence, incident response, and security monitoring, turning raw alerts into actionable insights. My approach blends hands-on technical skills with sharp analytical thinking.</p>
+    <p class="about-text">Whether I'm triaging phishing attempts or hunting down advanced persistent threats, I thrive in the fast-paced world of security operations. When I'm not monitoring dashboards, you'll find me building home labs, writing about cybersecurity, and contributing to the blue team community.</p>
+    <div class="about-term">
+      <span class="cmd">$ cat /etc/analyst-profile</span><br>
+      Focus: Detection &amp; Response &nbsp;|&nbsp; Location: Ireland 🇮🇪<br>
+      Available for: Hybrid / Remote Roles
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="maxw">
+    <div class="slbl">// Skills &amp; Certifications</div>
+    <div class="stitle">Arsenal &amp; <em>Credentials</em></div>
+    <div class="sk-grid">
+      <div class="sk"><h3>SIEM &amp; Monitoring</h3><div class="tags"><span class="tag">Splunk</span><span class="tag">Microsoft Sentinel</span><span class="tag">Elastic SIEM</span></div></div>
+      <div class="sk"><h3>Threat Intelligence</h3><div class="tags"><span class="tag">MITRE ATT&amp;CK</span><span class="tag">VirusTotal</span><span class="tag">AbuseIPDB</span><span class="tag">OSINT</span><span class="tag">Threat Hunting</span></div></div>
+      <div class="sk"><h3>Network &amp; Endpoint</h3><div class="tags"><span class="tag">Wireshark</span><span class="tag">Snort / Suricata</span><span class="tag">CrowdStrike</span></div></div>
+      <div class="sk"><h3>Incident Response</h3><div class="tags"><span class="tag">Digital Forensics</span><span class="tag">Memory Analysis</span><span class="tag">NIST Framework</span><span class="tag">Chain of Custody</span></div></div>
+      <div class="sk"><h3>Scripting &amp; Automation</h3><div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">PowerShell</span><span class="tag">SOAR</span></div></div>
+      <div class="sk"><h3>Cloud &amp; Infrastructure</h3><div class="tags"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Docker</span><span class="tag">Wazuh</span><span class="tag">TheHive</span></div></div>
+      <div class="sk"><h3>Certifications</h3><div class="tags"><span class="tag">CompTIA Security+</span><span class="tag">Google Cybersec Cert</span><span class="tag">TryHackMe SOC 1</span><span class="tag">Splunk Core User</span><span class="tag">CompTIA CySA+</span><span class="tag">Kaseya Certified Technician</span><span class="tag">Security Blue Team Level 1</span><span class="tag">GDPR</span><span class="tag">ISO/IEC 27001:2022 Lead</span><span class="tag">Malware Analysis</span><span class="tag">Remote IT &amp; Security Mgmt</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="maxw">
+    <div class="shrow">
+      <div><div class="slbl">// Featured Projects</div><div class="stitle">Field <em>Operations</em></div><p class="sdesc">A showcase of tools and environments I've built to sharpen my security skills.</p></div>
+      <button class="cbtn adm" onclick="openMod('projects')">+ New Project</button>
+    </div>
+    <div class="pgrid" id="pg"></div>
+  </div>
+</section>
+
+<!-- PLAYBOOKS -->
+<section id="playbooks"><div class="maxw">
+  <div class="shrow"><div><div class="slbl">// Response Procedures</div><div class="stitle">Playbooks</div></div><button class="cbtn adm" onclick="openMod('playbooks')">+ New</button></div>
+  <div class="alist" id="playbooks-list"></div><div class="empty" id="playbooks-empty">No playbooks published yet.</div>
+</div></section>
+
+<!-- IR REPORTS -->
+<section id="ir-reports"><div class="maxw">
+  <div class="shrow"><div><div class="slbl">// Case Files</div><div class="stitle">IR <em>Reports</em></div></div><button class="cbtn adm" onclick="openMod('ir-reports')">+ New</button></div>
+  <div class="alist" id="ir-reports-list"></div><div class="empty" id="ir-reports-empty">No IR reports published yet.</div>
+</div></section>
+
+<!-- ARTICLES -->
+<section id="articles"><div class="maxw">
+  <div class="shrow"><div><div class="slbl">// Write-Ups &amp; Research</div><div class="stitle">Thoughts &amp; <em>Insights</em></div><p class="sdesc">Writing about cybersecurity, threat breakdowns and lessons learned in the field.</p></div><button class="cbtn adm" onclick="openMod('articles')">+ New</button></div>
+  <div class="ftabs" id="ftabs"></div>
+  <div class="alist" id="articles-list"></div><div class="empty" id="articles-empty" style="display:none">No articles found in this category.</div>
+</div></section>
+
+<!-- CONTACT -->
+<section id="contact"><div class="maxw" style="text-align:center">
+  <div class="slbl">// Get In Touch</div>
+  <div class="stitle" style="margin-bottom:1rem">Let's <em>Connect</em></div>
+  <p class="sdesc" style="margin:0 auto 2.5rem;text-align:center">Interested in working together or discussing cybersecurity? I'm always open to new opportunities and conversations.</p>
+  <div class="cbtns"><a class="cl p" href="mailto:ifediora1000@gmail.com">Email →</a><a class="cl o" href="#">LinkedIn</a><a class="cl o" href="#">GitHub</a></div>
+</div></section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-left">Copyright © 2026</div>
+    <div class="foot-sub">
+      <span class="foot-sub-label">Stay in the loop</span>
+      <input type="email" id="se" placeholder="johndoe@example.com">
+      <button onclick="doSub()">Subscribe ↗</button>
+      <span class="subok2" id="so">✓ Subscribed!</span>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:ifediora1000@gmail.com">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<div class="dov" id="dov"><div class="dhdr"><button class="bb" onclick="cd()">← Back</button></div><div class="din" id="dcon"></div></div>
+
+<div class="mov" id="mov"><div class="mod">
+  <div class="mh"><h2 id="mt">New Post</h2><button class="mx" onclick="cm()">✕</button></div>
+  <form id="pf" onsubmit="sp(event)">
+    <input type="hidden" id="fc">
+    <div class="fg"><label>Title</label><input type="text" id="ft2" required placeholder="e.g. Building a Home SOC Lab"></div>
+    <div class="fg"><label>Short Description</label><input type="text" id="fd" placeholder="One-line summary"></div>
+    <div class="fr"><div class="fg"><label>Read Time</label><input type="text" id="frt" placeholder="e.g. 8 min"></div><div class="fg"><label>Tags</label><input type="text" id="ftg" placeholder="e.g. SOC, Wazuh, SIEM"></div></div>
+    <div class="fg"><label>Full Write-Up</label><textarea id="fco" placeholder="## for headings&#10;``` for code blocks&#10;- for bullet points"></textarea></div>
+    <button type="submit" class="sb">Publish</button>
+  </form>
+</div></div>
+
+<script>
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.shiftKey&&(e.key==='A'||e.key==='a')){e.preventDefault();document.body.classList.toggle('am')}});
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.shiftKey&&(e.key==='R'||e.key==='r')&&document.body.classList.contains('am')){e.preventDefault();if(confirm('Reset all data to defaults?')){localStorage.removeItem('portfolio_data');D=JSON.parse(JSON.stringify(DD));rp();rl('playbooks');rl('ir-reports');ra()}}});
+
+function go(id){cd();document.getElementById('nav').classList.remove('mob');var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
+var ss=document.querySelectorAll('section');var na=document.querySelectorAll('.nlink');
+window.addEventListener('scroll',function(){var c='';for(var i=0;i<ss.length;i++){if(window.scrollY>=ss[i].offsetTop-150)c=ss[i].id}for(var j=0;j<na.length;j++){if(na[j].getAttribute('data-s')===c)na[j].classList.add('active');else na[j].classList.remove('active')}});
+
+// TOOLS MARQUEE
+var tools=[
+{n:'Splunk',c:'#65a637'},{n:'Wireshark',c:'#1679a7'},{n:'Wazuh',c:'#00a9e5'},{n:'Python',c:'#3776ab'},{n:'MITRE ATT&CK',c:'#fa4616'},
+{n:'TheHive',c:'#f5a623'},{n:'CrowdStrike',c:'#ff0000'},{n:'Elastic SIEM',c:'#00bfb3'},{n:'Suricata',c:'#e8562a'},{n:'PowerShell',c:'#5391fe'},
+{n:'Docker',c:'#2496ed'},{n:'Sigma Rules',c:'#9b59b6'},{n:'YARA',c:'#e74c3c'},{n:'Bash',c:'#4eaa25'},{n:'VirusTotal',c:'#394eff'},
+{n:'AbuseIPDB',c:'#f39c12'},{n:'Azure',c:'#0078d4'},{n:'AWS',c:'#ff9900'},{n:'Nmap',c:'#8e44ad'},{n:'Volatility',c:'#e67e22'}
+];
+var mq=document.getElementById('marquee');var html='';for(var i=0;i<2;i++){for(var j=0;j<tools.length;j++){html+='<div class="tool-chip"><span class="tool-dot" style="background:'+tools[j].c+'"></span>'+tools[j].n+'</div>'}}mq.innerHTML=html;
+
+// DATA
+var cols=['ct','cb','cp','cr'];
+var DD={
+projects:[
+{title:'Home SOC Lab',status:'completed',tags:['Wazuh','TheHive','SOAR','Docker'],desc:'Full SOC environment with Wazuh, TheHive, and Shuffle SOAR for automated detection and response.',content:'<h2>Overview</h2><p>Full SOC environment with automated detection and response.</p><h2>Architecture</h2><p>Centralized log collection, alert correlation, automated playbooks.</p><h2>Outcomes</h2><p>MTTD under 5 minutes. 80% triage automation.</p>',date:'2025-01-15',readTime:'10 min',color:'cb',abbr:'HSL',url:'portfolio/soc-lab'},
+{title:'Phishing Analysis Toolkit',status:'completed',tags:['Python','Email Security','IOC Extraction'],desc:'Python toolkit for email header analysis, URL deobfuscation, and IOC extraction.',content:'<h2>Overview</h2><p>Automated suspicious email analysis, IOC extraction, threat reports.</p><pre>$ python pat.py --analyze suspicious.eml\n[+] IOCs: 5 IPs, 3 domains\n[+] Report generated</pre>',date:'2025-02-10',readTime:'8 min',color:'ct',abbr:'PAT',url:'portfolio/phishing-toolkit'},
+{title:'Detection Rules Library',status:'in-progress',tags:['Sigma','YARA','Splunk SPL','KQL'],desc:'50+ curated detection rules mapped to MITRE ATT&CK.',content:'<h2>Overview</h2><p>Validated rules in Sigma, YARA, and SIEM languages.</p>',date:'2025-02-20',readTime:'6 min',color:'cp',abbr:'DRL',url:'portfolio/detection-rules'},
+{title:'Network Traffic Analyzer',status:'in-progress',tags:['Python','Scapy','Wireshark'],desc:'Real-time packet capture for anomalous traffic detection.',content:'<h2>Overview</h2><p>Identifies C2 beacons and data exfiltration in real-time.</p>',date:'2025-02-22',readTime:'5 min',color:'cr',abbr:'NTA',url:'portfolio/network-analyzer'}
+],playbooks:[],'ir-reports':[],
+articles:[
+{title:'Building a Home SOC Lab from Scratch',desc:'Step-by-step guide to setting up your own SOC environment.',tags:['SOC','Wazuh','TheHive'],cat:'Blue Team',date:'2026-02-10',readTime:'8 min',content:'<h2>Introduction</h2><p>A home SOC lab is the best way to gain hands-on security operations experience.</p><h2>Architecture</h2><ul><li>Wazuh Manager</li><li>TheHive</li><li>Shuffle SOAR</li></ul><pre>version: "3.8"\nservices:\n  wazuh-manager:\n    image: wazuh/wazuh-manager:4.7.0</pre><h2>Takeaways</h2><p>More practical learning in one month than a year of reading.</p>'},
+{title:'Dissecting a Real Phishing Campaign',desc:'IOC extraction and MITRE mapping of a credential harvesting attack.',tags:['Phishing','IOC','MITRE ATT&CK'],cat:'Threat Intel',date:'2026-01-25',readTime:'6 min',content:'<h2>Overview</h2><p>Credential harvesting targeting financial employees.</p><h2>IOCs</h2><ul><li>3 malicious domains</li><li>5 C2 IPs</li></ul><h2>MITRE</h2><p>T1566.001, T1204.001, T1078.</p>'},
+{title:'Getting Started with Splunk for SOC Analysts',desc:'Essential SPL queries every junior SOC analyst should know.',tags:['Splunk','SPL','SIEM'],cat:'SIEM',date:'2026-01-12',readTime:'10 min',content:'<h2>Essential SPL</h2><pre>index=main EventCode=4625\n| stats count by Account_Name\n| sort -count</pre><h2>Tips</h2><p>Learn shortcuts. Validate time ranges.</p>'},
+{title:'MITRE ATT&CK: A Practical Guide for Blue Teams',desc:'Leverage ATT&CK to improve detection coverage.',tags:['MITRE ATT&CK','Blue Team'],cat:'Blue Team',date:'2025-12-20',readTime:'12 min',content:'<h2>What is ATT&CK?</h2><p>Knowledge base of adversary tactics.</p><h2>Prioritization</h2><ul><li>Prevalence</li><li>Detection difficulty</li><li>Impact</li></ul>'}
+]};
+
+function loadD(){try{var s=localStorage.getItem('portfolio_data');if(s)return JSON.parse(s)}catch(e){}return JSON.parse(JSON.stringify(DD))}
+function saveD(){try{localStorage.setItem('portfolio_data',JSON.stringify(D))}catch(e){}}
+var D=loadD();
+
+// RENDER
+function rp(){var g=document.getElementById('pg');g.innerHTML='';for(var i=0;i<D.projects.length;i++){var it=D.projects[i];var c=document.createElement('div');c.className='pc';c.setAttribute('onclick','od("projects",'+i+')');c.innerHTML='<div class="ptb"><span class="dt dr"></span><span class="dt dy"></span><span class="dt dg"></span><span class="purl">'+it.url+'</span></div><div class="ppv '+(it.color||'ct')+'"><span class="pab">'+it.abbr+'</span><span class="pst '+(it.status==='completed'?'sc':'si')+'">● '+(it.status==='completed'?'COMPLETED':'IN PROGRESS')+'</span></div><div class="pbd"><h3>'+it.title+'</h3><p>'+it.desc+'</p><div class="tags">'+it.tags.map(function(t){return'<span class="tag">'+t+'</span>'}).join('')+'</div></div>';g.appendChild(c)}}
+
+function rl(cat){var list=document.getElementById(cat+'-list'),emp=document.getElementById(cat+'-empty'),items=D[cat];if(!list)return;list.innerHTML='';if(!items.length){if(emp)emp.style.display='block';return}if(emp)emp.style.display='none';for(var i=0;i<items.length;i++){var it=items[i];var r=document.createElement('div');r.className='ai';r.setAttribute('onclick','od("'+cat+'",'+i+')');r.innerHTML='<div class="aif"><div class="ait">'+it.title+'</div><div class="aid">'+it.desc+'</div></div><div class="aim">'+it.date+' · '+it.readTime+'</div>';list.appendChild(r)}}
+
+// ARTICLES WITH FILTER
+var curFilter='All';
+function ra(){
+  var cats=['All'];
+  for(var i=0;i<D.articles.length;i++){var c=D.articles[i].cat||'General';if(cats.indexOf(c)===-1)cats.push(c)}
+  var tb=document.getElementById('ftabs');tb.innerHTML='';
+  for(var j=0;j<cats.length;j++){var btn=document.createElement('span');btn.className='ftab'+(cats[j]===curFilter?' active':'');btn.textContent=cats[j];btn.setAttribute('onclick','filterA("'+cats[j]+'")');tb.appendChild(btn)}
+  var list=document.getElementById('articles-list'),emp=document.getElementById('articles-empty');
+  var filtered=curFilter==='All'?D.articles:D.articles.filter(function(a){return a.cat===curFilter});
+  list.innerHTML='';
+  if(!filtered.length){emp.style.display='block';return}emp.style.display='none';
+  for(var k=0;k<filtered.length;k++){var it=filtered[k];var idx=D.articles.indexOf(it);var r=document.createElement('div');r.className='ai';r.setAttribute('onclick','od("articles",'+idx+')');r.innerHTML='<div class="aif"><div class="ait">'+it.title+'</div><div class="aid">'+it.desc+'</div></div><div class="aim">'+it.date+' · '+it.readTime+'</div>';list.appendChild(r)}
+}
+function filterA(c){curFilter=c;ra()}
+
+function sh(h){var d=document.createElement('div');d.innerHTML=h;return d.textContent||''}
+
+function od(cat,idx){var it=D[cat][idx];if(!it)return;var lb=cat.replace(/-/g,' ').replace(/\b\w/g,function(l){return l.toUpperCase()});var adm=document.body.classList.contains('am')?'<div class="dac"><button class="del" onclick="dp(\''+cat+'\','+idx+')">🗑 Delete</button></div>':'';var st=it.status?'<span class="pst '+(it.status==='completed'?'sc':'si')+'" style="position:static">● '+(it.status==='completed'?'COMPLETED':'IN PROGRESS')+'</span>':'';
+document.getElementById('dcon').innerHTML='<h1>'+it.title+'</h1><div class="dmr"><span>'+it.date+'</span><span>'+( it.readTime||'')+'</span><span>'+lb+'</span>'+st+'</div><div class="dtg tags">'+(it.tags||[]).map(function(t){return'<span class="tag">'+t+'</span>'}).join('')+'</div><div class="dc">'+it.content+'</div>'+adm;
+document.getElementById('dov').classList.add('open');document.body.style.overflow='hidden'}
+function cd(){document.getElementById('dov').classList.remove('open');document.body.style.overflow=''}
+function dp(cat,idx){if(!confirm('Delete?'))return;D[cat].splice(idx,1);saveD();cd();if(cat==='projects')rp();else if(cat==='articles')ra();else rl(cat)}
+
+function openMod(cat){var lb=cat.replace(/-/g,' ').replace(/\b\w/g,function(l){return l.toUpperCase()});document.getElementById('mt').textContent='New '+lb.replace(/s$/,'');document.getElementById('fc').value=cat;document.getElementById('pf').reset();document.getElementById('mov').classList.add('open')}
+function cm(){document.getElementById('mov').classList.remove('open')}
+document.getElementById('mov').addEventListener('click',function(e){if(e.target===this)cm()});
+
+function sp(e){e.preventDefault();var cat=document.getElementById('fc').value,ti=document.getElementById('ft2').value.trim(),de=document.getElementById('fd').value.trim(),rt=document.getElementById('frt').value.trim()||'5 min',tg=document.getElementById('ftg').value.split(',').map(function(t){return t.trim()}).filter(Boolean),co=document.getElementById('fco').value;
+var h=co.split('\n\n').map(function(b){if(b.indexOf('## ')===0)return'<h2>'+b.replace('## ','')+'</h2>';if(b.indexOf('```')===0)return'<pre>'+b.replace(/```/g,'').trim()+'</pre>';if(b.indexOf('- ')===0)return'<ul>'+b.split('\n').map(function(l){return'<li>'+l.replace(/^- /,'')+'</li>'}).join('')+'</ul>';return'<p>'+b.replace(/\n/g,'<br>')+'</p>'}).join('');
+var p={title:ti,desc:de||sh(h).substring(0,120)+'...',tags:tg,content:h,date:new Date().toISOString().split('T')[0],readTime:rt};
+if(cat==='projects'){p.status='in-progress';p.color=cols[Math.floor(Math.random()*cols.length)];p.abbr=ti.split(' ').map(function(w){return w[0]}).join('').substring(0,3).toUpperCase();p.url='portfolio/'+ti.toLowerCase().replace(/\s+/g,'-')}
+if(cat==='articles')p.cat=tg[0]||'General';
+D[cat].push(p);saveD();cm();if(cat==='projects')rp();else if(cat==='articles')ra();else rl(cat);setTimeout(function(){document.getElementById(cat).scrollIntoView({behavior:'smooth'})},100)}
+
+function doSub(){var e=document.getElementById('se').value;if(e&&e.indexOf('@')>-1){document.getElementById('so').style.display='inline';document.getElementById('se').value='';setTimeout(function(){document.getElementById('so').style.display='none'},4000)}}
+
+rp();rl('playbooks');rl('ir-reports');ra();
+</script>
+</body>
 </html>
