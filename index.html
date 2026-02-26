@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ifediora Okolo</title>
+<title>Ifediora Okolo | Cybersecurity Analyst</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#060608;--bg2:#0b0b10;--card:#0f0f16;--card2:#131320;--accent:#00e6b0;--accent2:#00c49a;--aglow:rgba(0,230,176,0.1);--abrd:rgba(0,230,176,0.2);--t:#eef1f0;--ts:#8a9b90;--tm:#3e4e44;--brd:#161622;--red:#ff5f57;--yel:#febc2e;--grn:#28c840;--ora:#f0a030;--tbg:rgba(0,230,176,0.07);--tbrd:rgba(0,230,176,0.15)}
@@ -175,6 +175,14 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:3rem 4rem 2r
 .dc pre{background:var(--card);border:1px solid var(--brd);border-radius:8px;padding:1rem;font-family:'Fira Code',monospace;font-size:0.75rem;overflow-x:auto;margin:1rem 0;color:var(--t);line-height:1.7}
 .dc ul,.dc ol{margin:0.8rem 0 1.2rem 1.5rem;color:var(--ts)}
 .dc li{margin-bottom:0.4rem}
+.dc h3{font-family:'Fira Code',monospace;font-size:0.82rem;color:var(--accent);margin:1.5rem 0 0.5rem;letter-spacing:0.5px}
+.dc table.ir-tbl{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.82rem}
+.dc .ir-tbl td{border:1px solid var(--brd);padding:0.5rem 0.7rem;color:var(--ts);vertical-align:top}
+.dc .ir-tbl tr.ir-hdr td{background:var(--card2);color:var(--accent);font-family:'Fira Code',monospace;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.dc .ir-lbl{font-weight:600;color:var(--t);width:35%;background:rgba(255,255,255,0.02)}
+.dc .ir-red{color:#ff4444;font-weight:600}
+.dc .ir-meta{margin-bottom:2rem}
+.dc .ir-sig{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--brd);font-size:0.85rem;color:var(--ts);line-height:1.8}
 .dac{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--brd)}
 .del{font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--red);background:rgba(255,95,87,0.08);border:1px solid rgba(255,95,87,0.2);border-radius:5px;padding:0.35rem 0.8rem;cursor:pointer}
 
@@ -245,7 +253,7 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:3rem 4rem 2r
     <div class="hero-avail">Available for opportunities &amp; collaboration</div>
     <div class="hero-role">Cybersecurity<br><em>Analyst</em></div>
     <div class="hero-sub">SOC ANALYST · INCIDENT RESPONDER · THREAT INTEL</div>
-    <p class="hero-bio">I'm a Cybersecurity analyst with a passion for keeping organizations safe from cyber threats. I specialize in threat intelligence, incident response, and security monitoring — turning raw alerts into actionable insights that make a real difference.</p>
+    <p class="hero-bio">I'm a security practitioner with a passion for keeping organizations safe from cyber threats. I specialize in threat intelligence, incident response, and security monitoring — turning raw alerts into actionable insights that make a real difference.</p>
     <div class="hero-btns">
       <a class="hbtn pri" href="https://calendly.com/ifediora1000/30min" target="_blank">Book a Call ↗</a>
       <a class="hbtn sec" onclick="go('projects')">View Projects ↗</a>
@@ -277,7 +285,7 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:3rem 4rem 2r
   <div class="maxw">
     <div class="slbl">// About Me</div>
     <div class="stitle">Defending networks, <em>one alert at a time.</em></div>
-    <div class="about-tag">A Cybersecurity Analyst</div>
+    <div class="about-tag">A Cybersecurity Practitioner</div>
     <p class="about-text">I specialize in threat intelligence, incident response, and security monitoring, turning raw alerts into actionable insights. My approach blends hands-on technical skills with sharp analytical thinking.</p>
     <p class="about-text">Whether I'm triaging phishing attempts or hunting down advanced persistent threats, I thrive in the fast-paced world of security operations. When I'm not monitoring dashboards, you'll find me building home labs, writing about cybersecurity, and contributing to the blue team community.</p>
     <div class="about-term">
@@ -378,7 +386,7 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:3rem 4rem 2r
     <div class="fg"><label>Title</label><input type="text" id="ft2" required placeholder="e.g. Building a Home SOC Lab"></div>
     <div class="fg"><label>Short Description</label><input type="text" id="fd" placeholder="One-line summary"></div>
     <div class="fr"><div class="fg"><label>Read Time</label><input type="text" id="frt" placeholder="e.g. 8 min"></div><div class="fg"><label>Tags</label><input type="text" id="ftg" placeholder="e.g. SOC, Wazuh, SIEM"></div></div>
-    <div class="fg"><label>Full Write-Up</label><textarea id="fco" placeholder="## for headings&#10;``` for code blocks&#10;- for bullet points"></textarea></div>
+    <div class="fg"><label>Full Write-Up</label><textarea id="fco" placeholder="## for headings&#10;### for subheadings&#10;``` for code blocks&#10;- for bullet points&#10;&#10;Tables:&#10;| Column 1 | Column 2 |&#10;| --- | --- |&#10;| Data | Data |"></textarea></div>
     <button type="submit" class="sb">Publish</button>
   </form>
 </div></div>
@@ -423,7 +431,9 @@ projects:[
 {title:'Phishing Analysis Toolkit',status:'completed',tags:['Python','Email Security','IOC Extraction'],desc:'Python toolkit for email header analysis, URL deobfuscation, and IOC extraction.',content:'<h2>Overview</h2><p>Automated suspicious email analysis, IOC extraction, threat reports.</p><pre>$ python pat.py --analyze suspicious.eml\n[+] IOCs: 5 IPs, 3 domains\n[+] Report generated</pre>',date:'2025-02-10',readTime:'8 min',color:'ct',abbr:'PAT',url:'portfolio/phishing-toolkit'},
 {title:'Detection Rules Library',status:'in-progress',tags:['Sigma','YARA','Splunk SPL','KQL'],desc:'50+ curated detection rules mapped to MITRE ATT&CK.',content:'<h2>Overview</h2><p>Validated rules in Sigma, YARA, and SIEM languages.</p>',date:'2025-02-20',readTime:'6 min',color:'cp',abbr:'DRL',url:'portfolio/detection-rules'},
 {title:'Network Traffic Analyzer',status:'in-progress',tags:['Python','Scapy','Wireshark'],desc:'Real-time packet capture for anomalous traffic detection.',content:'<h2>Overview</h2><p>Identifies C2 beacons and data exfiltration in real-time.</p>',date:'2025-02-22',readTime:'5 min',color:'cr',abbr:'NTA',url:'portfolio/network-analyzer'}
-],playbooks:[],'ir-reports':[],
+],playbooks:[],'ir-reports':[
+{title:'Akira Ransomware - Incident Response Report',desc:'Full IR report on Akira ransomware attack: VPN compromise, lateral movement, 120GB exfiltration, 47 endpoints encrypted. MITRE ATT&CK mapped.',tags:['Ransomware','Akira','Incident Response','MITRE ATT&CK'],date:'2026-02-20',readTime:'15 min',content:'<div class="ir-meta"><table class="ir-tbl"><tr><td class="ir-lbl">Incident ID</td><td>IR-2026-0042</td></tr><tr><td class="ir-lbl">Classification</td><td class="ir-red">CONFIDENTIAL</td></tr><tr><td class="ir-lbl">Date of Detection</td><td>February 15, 2026 - 03:42 UTC</td></tr><tr><td class="ir-lbl">Containment</td><td>February 15, 2026 - 08:15 UTC</td></tr><tr><td class="ir-lbl">Threat Actor</td><td>Akira Ransomware Group</td></tr><tr><td class="ir-lbl">Severity</td><td class="ir-red">CRITICAL (P1)</td></tr></table></div><h2>1. Executive Summary</h2><p>On February 15, 2026, the SOC detected anomalous activity consistent with Akira ransomware across the corporate network. The attack resulted in encryption of 47 endpoints and 3 file servers within the finance and HR departments.</p><p>The threat actor gained initial access through a compromised VPN credential, laterally moved using RDP and PsExec, exfiltrated ~120GB of data, and deployed the Akira ransomware. Containment was achieved within 4.5 hours. A $2.5M ransom was demanded but not paid. Systems were restored from clean backups.</p><h2>2. Incident Timeline</h2><table class="ir-tbl"><tr class="ir-hdr"><td>Date/Time (UTC)</td><td>Phase</td><td>Event</td></tr><tr><td>Feb 14, 22:30</td><td>Initial Access</td><td>Compromised VPN credentials from Tor exit node 185.220.101[.]34</td></tr><tr><td>Feb 14, 23:15</td><td>Discovery</td><td>Network enumeration via AdFind, SoftPerfect Scanner</td></tr><tr><td>Feb 15, 00:45</td><td>Lateral Movement</td><td>RDP to DC01, FS01, FS02 using domain admin creds</td></tr><tr><td>Feb 15, 01:30</td><td>Exfiltration</td><td>120GB staged and exfiltrated via WinSCP to 45.83.67[.]190</td></tr><tr><td>Feb 15, 03:00</td><td>Deployment</td><td>Akira binary (w.exe) deployed via PsExec to 47 endpoints</td></tr><tr><td>Feb 15, 03:42</td><td>Detection</td><td>Wazuh alert: suspicious file encryption on FS01</td></tr><tr><td>Feb 15, 05:30</td><td>Containment</td><td>VLANs isolated, accounts disabled, VPN revoked</td></tr><tr><td>Feb 15, 08:15</td><td>Contained</td><td>Full segmentation confirmed, threat actor eliminated</td></tr><tr><td>Feb 16-19</td><td>Recovery</td><td>Systems rebuilt from verified clean backups</td></tr></table><h2>3. Technical Analysis</h2><h3>3.1 Initial Access</h3><p>Compromised VPN service account (svc-backup) lacking MFA. Password not rotated in 14+ months. VPN access from Tor exit node was not geo-blocked.</p><h3>3.2 Lateral Movement</h3><ul><li>AD enumeration via AdFind.exe and bloodhound-python</li><li>Credential harvesting via Mimikatz (detected in memory)</li><li>RDP to domain controllers and file servers</li><li>PsExec for remote ransomware deployment</li><li>PowerShell used to disable Windows Defender</li></ul><h3>3.3 Data Exfiltration</h3><p>~120GB exfiltrated (double-extortion):</p><ul><li>Financial records (Q3/Q4 2025, payroll)</li><li>Employee PII (SSNs, banking details)</li><li>Contract documents and legal correspondence</li></ul><h3>3.4 Ransomware Details</h3><table class="ir-tbl"><tr class="ir-hdr"><td>Attribute</td><td>Value</td></tr><tr><td>Filename</td><td>w.exe</td></tr><tr><td>SHA256</td><td>3c92bfc1a42a4bdf4e23cbf4d01f3ab8f96f7e...</td></tr><tr><td>Encryption</td><td>ChaCha20 + RSA-4096</td></tr><tr><td>Extension</td><td>.akira</td></tr><tr><td>Kill Processes</td><td>SQL, Oracle, Veeam, backup agents, AV</td></tr><tr><td>Shadow Copies</td><td>Deleted via vssadmin and WMI</td></tr></table><h2>4. MITRE ATT&CK Mapping</h2><table class="ir-tbl"><tr class="ir-hdr"><td>Tactic</td><td>Technique</td><td>Details</td></tr><tr><td>Initial Access</td><td>T1133</td><td>Compromised VPN</td></tr><tr><td>Execution</td><td>T1059.001</td><td>PowerShell</td></tr><tr><td>Credential Access</td><td>T1003.001</td><td>Mimikatz / LSASS</td></tr><tr><td>Discovery</td><td>T1018</td><td>AdFind enumeration</td></tr><tr><td>Lateral Movement</td><td>T1021.001</td><td>RDP sessions</td></tr><tr><td>Exfiltration</td><td>T1048</td><td>WinSCP transfer</td></tr><tr><td>Impact</td><td>T1486</td><td>Akira encryption</td></tr><tr><td>Impact</td><td>T1490</td><td>Shadow copy deletion</td></tr></table><h2>5. Indicators of Compromise</h2><table class="ir-tbl"><tr class="ir-hdr"><td>Type</td><td>Indicator</td><td>Context</td></tr><tr><td>IP</td><td>185.220.101[.]34</td><td>Tor exit - VPN access</td></tr><tr><td>IP</td><td>45.83.67[.]190</td><td>Exfiltration server</td></tr><tr><td>IP</td><td>193.42.33[.]47</td><td>C2 callback</td></tr><tr><td>File</td><td>w.exe</td><td>Ransomware binary</td></tr><tr><td>File</td><td>AdFind.exe</td><td>AD enumeration</td></tr><tr><td>File</td><td>akira_readme.txt</td><td>Ransom note</td></tr></table><h2>6. Impact Assessment</h2><table class="ir-tbl"><tr><td class="ir-lbl">Systems Affected</td><td>47 workstations, 3 file servers</td></tr><tr><td class="ir-lbl">Data Encrypted</td><td>~2.3TB across finance/HR drives</td></tr><tr><td class="ir-lbl">Data Exfiltrated</td><td>~120GB including PII and financials</td></tr><tr><td class="ir-lbl">Downtime</td><td>Finance: 4 days, HR: 3 days</td></tr><tr><td class="ir-lbl">Ransom</td><td class="ir-red">$2,500,000 USD (NOT PAID)</td></tr><tr><td class="ir-lbl">Recovery Cost</td><td>~$180,000</td></tr></table><h2>7. Containment & Eradication</h2><ul><li>Isolated affected VLANs (Finance, HR)</li><li>Disabled compromised accounts</li><li>Blocked IOC IPs/domains at firewall and DNS</li><li>Rebuilt 47 workstations from golden images</li><li>Restored servers from offline backups (48hr RPO)</li><li>Rotated all AD passwords including KRBTGT (twice)</li></ul><h2>8. Recommendations</h2><h3>Immediate (0-30 days)</h3><ul><li>Enforce MFA on ALL remote access</li><li>Implement PAM for admin accounts</li><li>Deploy network segmentation</li><li>Block Tor exit nodes at perimeter</li></ul><h3>Short-term (30-90 days)</h3><ul><li>Deploy Microsoft LAPS</li><li>Application whitelisting on critical servers</li><li>Enhanced SIEM rules for lateral movement</li><li>Immutable backup solution</li></ul><h3>Long-term (90+ days)</h3><ul><li>Zero Trust Architecture</li><li>24/7 SOC with automated playbooks</li><li>Regular purple team exercises</li><li>Threat intel monitoring for Akira group</li></ul><h2>9. Lessons Learned</h2><table class="ir-tbl"><tr class="ir-hdr"><td>Gap</td><td>Impact</td><td>Fix</td></tr><tr><td>No MFA on VPN</td><td>Enabled initial access</td><td>MFA enforced</td></tr><tr><td>Stale passwords</td><td>Creds compromised</td><td>90-day rotation</td></tr><tr><td>Flat network</td><td>Unrestricted movement</td><td>Segmentation</td></tr><tr><td>No DLP</td><td>120GB exfiltrated</td><td>DLP + NetFlow</td></tr></table><p class="ir-sig"><strong>Prepared By:</strong> Ifediora Okolo | Cybersecurity Analyst<br><strong>Distribution:</strong> <span class="ir-red">CONFIDENTIAL - IR TEAM, CISO, LEGAL</span></p>'}
+],
 articles:[
 {title:'Building a Home SOC Lab from Scratch',desc:'Step-by-step guide to setting up your own SOC environment.',tags:['SOC','Wazuh','TheHive'],cat:'Blue Team',date:'2026-02-10',readTime:'8 min',content:'<h2>Introduction</h2><p>A home SOC lab is the best way to gain hands-on security operations experience.</p><h2>Architecture</h2><ul><li>Wazuh Manager</li><li>TheHive</li><li>Shuffle SOAR</li></ul><pre>version: "3.8"\nservices:\n  wazuh-manager:\n    image: wazuh/wazuh-manager:4.7.0</pre><h2>Takeaways</h2><p>More practical learning in one month than a year of reading.</p>'},
 {title:'Dissecting a Real Phishing Campaign',desc:'IOC extraction and MITRE mapping of a credential harvesting attack.',tags:['Phishing','IOC','MITRE ATT&CK'],cat:'Threat Intel',date:'2026-01-25',readTime:'6 min',content:'<h2>Overview</h2><p>Credential harvesting targeting financial employees.</p><h2>IOCs</h2><ul><li>3 malicious domains</li><li>5 C2 IPs</li></ul><h2>MITRE</h2><p>T1566.001, T1204.001, T1078.</p>'},
@@ -431,7 +441,23 @@ articles:[
 {title:'MITRE ATT&CK: A Practical Guide for Blue Teams',desc:'Leverage ATT&CK to improve detection coverage.',tags:['MITRE ATT&CK','Blue Team'],cat:'Blue Team',date:'2025-12-20',readTime:'12 min',content:'<h2>What is ATT&CK?</h2><p>Knowledge base of adversary tactics.</p><h2>Prioritization</h2><ul><li>Prevalence</li><li>Detection difficulty</li><li>Impact</li></ul>'}
 ]};
 
-function loadD(){try{var s=localStorage.getItem('portfolio_data');if(s)return JSON.parse(s)}catch(e){}return JSON.parse(JSON.stringify(DD))}
+function loadD(){
+  try{
+    var s=localStorage.getItem('portfolio_data');
+    if(s){
+      var d=JSON.parse(s);
+      // Merge new defaults for categories that are empty in saved data but have defaults
+      var cats=['ir-reports','playbooks'];
+      for(var i=0;i<cats.length;i++){
+        if((!d[cats[i]]||!d[cats[i]].length)&&DD[cats[i]]&&DD[cats[i]].length){
+          d[cats[i]]=JSON.parse(JSON.stringify(DD[cats[i]]));
+        }
+      }
+      return d;
+    }
+  }catch(e){}
+  return JSON.parse(JSON.stringify(DD));
+}
 function saveD(){try{localStorage.setItem('portfolio_data',JSON.stringify(D))}catch(e){}}
 var D=loadD();
 
@@ -468,7 +494,22 @@ function cm(){document.getElementById('mov').classList.remove('open')}
 document.getElementById('mov').addEventListener('click',function(e){if(e.target===this)cm()});
 
 function sp(e){e.preventDefault();var cat=document.getElementById('fc').value,ti=document.getElementById('ft2').value.trim(),de=document.getElementById('fd').value.trim(),rt=document.getElementById('frt').value.trim()||'5 min',tg=document.getElementById('ftg').value.split(',').map(function(t){return t.trim()}).filter(Boolean),co=document.getElementById('fco').value;
-var h=co.split('\n\n').map(function(b){if(b.indexOf('## ')===0)return'<h2>'+b.replace('## ','')+'</h2>';if(b.indexOf('```')===0)return'<pre>'+b.replace(/```/g,'').trim()+'</pre>';if(b.indexOf('- ')===0)return'<ul>'+b.split('\n').map(function(l){return'<li>'+l.replace(/^- /,'')+'</li>'}).join('')+'</ul>';return'<p>'+b.replace(/\n/g,'<br>')+'</p>'}).join('');
+var h=co.split('\n\n').map(function(b){
+  if(b.indexOf('### ')===0)return'<h3>'+b.replace('### ','')+'</h3>';
+  if(b.indexOf('## ')===0)return'<h2>'+b.replace('## ','')+'</h2>';
+  if(b.indexOf('```')===0)return'<pre>'+b.replace(/```/g,'').trim()+'</pre>';
+  if(b.indexOf('- ')===0)return'<ul>'+b.split('\n').map(function(l){return'<li>'+l.replace(/^- /,'')+'</li>'}).join('')+'</ul>';
+  if(b.indexOf('| ')===0){
+    var rows=b.split('\n').filter(function(r){return r.trim()&&r.indexOf('---')===-1});
+    var thtml='<table class="ir-tbl">';
+    for(var ri=0;ri<rows.length;ri++){
+      var cells=rows[ri].split('|').filter(function(c){return c.trim()});
+      thtml+='<tr'+(ri===0?' class="ir-hdr"':'')+'>';
+      for(var ci=0;ci<cells.length;ci++){thtml+='<td>'+cells[ci].trim()+'</td>'}
+      thtml+='</tr>'}
+    return thtml+'</table>'}
+  return'<p>'+b.replace(/\n/g,'<br>')+'</p>'
+}).join('');
 var p={title:ti,desc:de||sh(h).substring(0,120)+'...',tags:tg,content:h,date:new Date().toISOString().split('T')[0],readTime:rt};
 if(cat==='projects'){p.status='in-progress';p.color=cols[Math.floor(Math.random()*cols.length)];p.abbr=ti.split(' ').map(function(w){return w[0]}).join('').substring(0,3).toUpperCase();p.url='portfolio/'+ti.toLowerCase().replace(/\s+/g,'-')}
 if(cat==='articles')p.cat=tg[0]||'General';
