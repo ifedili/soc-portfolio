@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 // ============================================
-// Beehiiv Magic Link for direct subscriptions
+// Beehiiv subscription via Vercel API route
+// No API keys exposed in frontend
 // ============================================
-const BEEHIIV_MAGIC_LINK = "https://magic.beehiiv.com/v1/8e98c441-e013-4519-85c2-c52d41ff167c";
 
 export default function SubscribeWidget() {
   const [email, setEmail] = useState("");
@@ -16,17 +16,23 @@ export default function SubscribeWidget() {
 
     setStatus("sending");
 
-    const url = `${BEEHIIV_MAGIC_LINK}?email=${encodeURIComponent(email)}`;
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
 
-    // Open magic link in a small popup, then auto-close it
-    const popup = window.open(url, "beehiiv_sub", "width=1,height=1,left=-100,top=-100");
-
-    // Close popup and show success after a brief delay
-    setTimeout(() => {
-      try { if (popup) popup.close(); } catch (e) {}
-      setStatus("success");
-      setEmail("");
-    }, 2000);
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        throw new Error("Subscription failed");
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 2000);
+    }
   };
 
   const handleKeyDown = (e) => {
