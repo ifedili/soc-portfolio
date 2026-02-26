@@ -1,12 +1,9 @@
 import { useState } from "react";
 
 // ============================================
-// Replace with your Beehiiv Publication ID.
-// Find it: Beehiiv Dashboard → Settings → Publication
-// It looks like: pub_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+// Beehiiv Magic Link for direct subscriptions
 // ============================================
-const BEEHIIV_PUB_ID = "pub_8e98c441-e013-4519-85c2-c52d41ff167c";
-const BEEHIIV_API_KEY = "2IsjGj3SnhgDTHUpvEvhPh5WCRg3CswVoW6sB6NdRuKuKoHMSOdWjS9vN6oA9TCU";
+const BEEHIIV_MAGIC_LINK = "https://magic.beehiiv.com/v1/8e98c441-e013-4519-85c2-c52d41ff167c";
 
 export default function SubscribeWidget() {
   const [email, setEmail] = useState("");
@@ -20,27 +17,22 @@ export default function SubscribeWidget() {
     setStatus("sending");
 
     try {
-      const res = await fetch(
-        `https://api.beehiiv.com/v2/publications/${BEEHIIV_PUB_ID}/subscriptions`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${BEEHIIV_API_KEY}`,
-          },
-          body: JSON.stringify({
-            email: email,
-            utm_source: "website",
-            utm_medium: "subscribe_form",
-          }),
-        }
-      );
+      // Use a hidden iframe to submit via the magic link
+      const iframe = document.createElement("iframe");
+      iframe.name = "beehiiv_frame";
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
 
-      if (res.ok || res.status === 201) {
-        setStatus("success");
-      } else {
-        throw new Error("Subscription failed");
-      }
+      iframe.src = `${BEEHIIV_MAGIC_LINK}?email=${encodeURIComponent(email)}`;
+
+      // Wait briefly for the request to go through
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      // Clean up
+      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+
+      setStatus("success");
+      setEmail("");
     } catch {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 2000);
