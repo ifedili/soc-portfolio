@@ -211,7 +211,7 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:2.5rem 4rem}
 </style>
 </head>
 <body>
-<div class="abadge">⚡ ADMIN — Ctrl+Shift+A to exit</div>
+<div class="abadge">⚡ ADMIN — Ctrl+Shift+L to exit</div>
 
 <nav id="nav">
   <span class="nlogo" onclick="go('hero')"><span class="t">~/</span>ifediora</span>
@@ -242,9 +242,8 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:2.5rem 4rem}
       <span><span class="hl">THREAT LEVEL:</span> <span class="vo">MONITORED</span></span>
     </div>
     <div class="stats-bar">
-      <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Certifications</div></div>
+      <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Years Experience</div></div>
       <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Projects Built</div></div>
-      <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Detection Rules</div></div>
     </div>
   </div>
 </section>
@@ -267,7 +266,7 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:2.5rem 4rem}
     <p class="about-text">Whether I'm triaging phishing attempts or hunting down advanced persistent threats, I thrive in the fast-paced world of security operations. When I'm not monitoring dashboards, you'll find me building home labs, writing about cybersecurity, and contributing to the blue team community.</p>
     <div class="about-term">
       <span class="cmd">$ cat /etc/analyst-profile</span><br>
-      Focus: Detection &amp; Response &nbsp;|&nbsp; Location: Ireland 🇮🇪<br>
+      Focus: Detection &amp; Response &nbsp;|&nbsp; Location: Ireland <svg width="18" height="12" viewBox="0 0 3 2" style="vertical-align:middle;margin-left:3px;border-radius:2px"><rect width="1" height="2" fill="#169B62"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#FF883E"/></svg><br>
       Available for: Hybrid / Remote Roles
     </div>
   </div>
@@ -364,8 +363,23 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:2.5rem 4rem}
 </div></div>
 
 <script>
-document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.shiftKey&&(e.key==='A'||e.key==='a')){e.preventDefault();document.body.classList.toggle('am')}});
+var ADMIN_PASS='Uwasotajunction21$';
+function toggleAdmin(){
+  if(document.body.classList.contains('am')){document.body.classList.remove('am');return}
+  var pw=prompt('Enter admin password:');
+  if(pw===ADMIN_PASS){document.body.classList.add('am')}
+  else if(pw!==null){alert('Incorrect password.')}
+}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.shiftKey&&(e.key==='L'||e.key==='l')){e.preventDefault();toggleAdmin()}});
 document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.shiftKey&&(e.key==='R'||e.key==='r')&&document.body.classList.contains('am')){e.preventDefault();if(confirm('Reset all data to defaults?')){localStorage.removeItem('portfolio_data');D=JSON.parse(JSON.stringify(DD));rp();rl('playbooks');rl('ir-reports');ra()}}});
+
+// Backup: tap logo 5 times quickly to toggle admin
+var tapCount=0,tapTimer=null;
+document.querySelector('.nlogo').addEventListener('click',function(e){
+  tapCount++;
+  if(tapCount===1){tapTimer=setTimeout(function(){tapCount=0},2000)}
+  if(tapCount>=5){clearTimeout(tapTimer);tapCount=0;toggleAdmin()}
+});
 
 function go(id){cd();document.getElementById('nav').classList.remove('mob');var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
 var ss=document.querySelectorAll('section');var na=document.querySelectorAll('.nlink');
