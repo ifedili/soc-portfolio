@@ -16,27 +16,17 @@ export default function SubscribeWidget() {
 
     setStatus("sending");
 
-    try {
-      // Use a hidden iframe to submit via the magic link
-      const iframe = document.createElement("iframe");
-      iframe.name = "beehiiv_frame";
-      iframe.style.display = "none";
-      document.body.appendChild(iframe);
+    const url = `${BEEHIIV_MAGIC_LINK}?email=${encodeURIComponent(email)}`;
 
-      iframe.src = `${BEEHIIV_MAGIC_LINK}?email=${encodeURIComponent(email)}`;
+    // Open magic link in a small popup, then auto-close it
+    const popup = window.open(url, "beehiiv_sub", "width=1,height=1,left=-100,top=-100");
 
-      // Wait briefly for the request to go through
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // Clean up
-      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-
+    // Close popup and show success after a brief delay
+    setTimeout(() => {
+      try { if (popup) popup.close(); } catch (e) {}
       setStatus("success");
       setEmail("");
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 2000);
-    }
+    }, 2000);
   };
 
   const handleKeyDown = (e) => {
