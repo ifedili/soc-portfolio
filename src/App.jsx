@@ -134,6 +134,22 @@ const PLAYBOOKS = [
     tools: ['CrowdStrike', 'Microsoft Sentinel', 'Splunk', 'Wireshark', 'Volatility'],
     mitre: 'T1059.001 — PowerShell / T1059.003 — Windows CMD Shell',
   },
+  {
+    title: 'PsExec Lateral Movement Detection',
+    severity: 'HIGH',
+    steps: [
+      'Monitor for Event ID 7045 (new service: PSEXESVC), Event ID 4624 (Type 3 logon from unexpected IPs), and Event ID 4672 (SeDebugPrivilege assigned)',
+      'Identify Impacket psexec.py variant — look for short-lived services with random 8-char names instead of PSEXESVC',
+      'Analyze process trees: services.exe → PSEXESVC.exe → cmd.exe, and check for PsExec renamed as svchost.exe, csrss.exe, or update.exe',
+      'Check for ADMIN$ share access (Event ID 5140/5145) and file creation in C:\\Windows for PSEXESVC.exe or randomly named binaries',
+      'Correlate across environment — single source IP connecting to multiple hosts via SMB (port 445) in short timeframe indicates lateral spread',
+      'Isolate affected endpoints via EDR, block source IP at internal firewall, disable compromised accounts immediately',
+      'Collect forensic artifacts: Prefetch (PSEXESVC.EXE-*.pf), $MFT entries, registry Services key, ShimCache, AmCache, named pipe artifacts',
+      'Rotate all compromised credentials including KRBTGT (twice), restrict ADMIN$ share via GPO, deploy LAPS, update SIEM detection rules for PsExec service name patterns',
+    ],
+    tools: ['CrowdStrike', 'Microsoft Sentinel', 'Splunk', 'Wireshark', 'Volatility'],
+    mitre: 'T1021.002 — SMB/Windows Admin Shares / T1569.002 — Service Execution',
+  },
 ]
 
 const IR_REPORTS = [
