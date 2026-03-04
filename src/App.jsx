@@ -118,6 +118,22 @@ const PLAYBOOKS = [
     tools: ['Wireshark', 'DLP', 'Firewall Logs'],
     mitre: 'T1041 — Exfiltration Over C2 Channel',
   },
+  {
+    title: 'Suspicious CMD & PowerShell Execution',
+    severity: 'HIGH',
+    steps: [
+      'Alert on suspicious parent-child process chains (e.g. WINWORD.EXE → cmd.exe → powershell.exe, wmiprvse.exe → powershell.exe)',
+      'Check for high-risk flags: -EncodedCommand, -ExecutionPolicy Bypass, -WindowStyle Hidden, -NoProfile, IEX/Invoke-Expression',
+      'Inspect process tree for cross-shell spawning — CMD launching PowerShell or vice versa to evade shell-specific detections',
+      'Identify LOLBin chaining: rundll32.exe (comsvcs.dll MiniDump for LSASS dumping), certutil.exe (file download/Base64 decode), mshta.exe, regsvr32.exe',
+      'Correlate with network activity — look for download cradles (Net.WebClient, DownloadString) and C2 callbacks',
+      'Capture full command-line arguments, decode any Base64 payloads, and map each action to MITRE ATT&CK techniques',
+      'Contain affected endpoints via EDR isolation, block C2 infrastructure, and preserve forensic evidence (memory dump, prefetch, $MFT, ShimCache)',
+      'Document full process tree with PIDs, timestamps, and user context — update detection rules to cover observed patterns',
+    ],
+    tools: ['CrowdStrike', 'Microsoft Sentinel', 'Splunk', 'Wireshark', 'Volatility'],
+    mitre: 'T1059.001 — PowerShell / T1059.003 — Windows CMD Shell',
+  },
 ]
 
 const IR_REPORTS = [
